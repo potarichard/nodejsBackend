@@ -13,10 +13,6 @@ router.get('/', async (req, res) => {
   res.json(response)
 })
 
-// New Author Route
-router.get('/new', (req, res) => {
-  res.json("send me the new author so i save that")
-})
 
 // Create Author Route
 router.post('/', async (req, res) => {

@@ -1,0 +1,2 @@
+npm i bcrypt        // for authentications
+????                // for register as eureka client
