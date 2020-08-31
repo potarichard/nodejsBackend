@@ -1,2 +1,20 @@
 npm i bcrypt        // for authentications
+
 ????                // for register as eureka client
+
+npm i passport passport-local express-session express-flash      // ez a form ased login and session lesz.
+// eza passport valoban session based, az egyes endpointok elerese pedig egy middlaware function beiktatasaval megy ugye -> isAuthenticated(req,res,next)
+
+function checkAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
+
+  res.redirect('/login')
+}
+
+és akkor pelda, az indexet mar csak authenticated user erheti el, kulonben a loginra lesz visszairanyitva
+
+app.get('/', checkAuthenticated, (req, res) => {
+  res.render('index.ejs', { name: req.user.name })
+})
